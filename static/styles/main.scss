@@ -52,11 +52,17 @@ html {
     background: var(--sidebar-color);
     color: var(--sidebar-text);
     border-right: 1px solid var(--border-color);
+    height: 100%;
+    width: 23%;
+    position: fixed;
+    left: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
     .highlight {
         background: #334441;
         color: #50C68A;
     }
-    li {
+    li:not(.form_wrapper) {
         margin: 15px 3px;
         display: inline-block;
         border-bottom: 1px solid var(--border-color);
@@ -64,13 +70,22 @@ html {
         padding: 0;
         padding-bottom: 20px;
     }
-    height: 100%;
-    width: 23%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    li form {
+        margin-top: -44px;
+        transition: all .30s ease-in-out;
+        &.show {
+            margin-top: 0;
+        }
+    }
+    li input {
+        padding: 15px 5px;
+        border: none;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+        background: transparent;
+        outline: none;
+        color: white;
+    }
 }
 
 #content {
@@ -94,4 +109,20 @@ html {
     transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
+#customtitle_wrap {
+    -webkit-app-region: drag;
+    background: var(--sidebar-color);
+    border-top: var(--border-color) 1px solid;
+    text-align: center;
+    h1 {
+        color: var(--sidebar-text);
+        font-family: 'Gochi Hand', cursive;
+        padding: 5px 0;
+        font-size: 1.5rem;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
 }
